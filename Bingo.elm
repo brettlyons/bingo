@@ -5,6 +5,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import String exposing (toUpper, repeat, trimRight)
 
+-- MODEL
 
 newEntry phrase points id =
   { phrase = phrase
@@ -14,7 +15,17 @@ newEntry phrase points id =
   }
 
 
-title : String -> Int -> Html
+initialModel =
+  { entries =
+      [ newEntry "Doing Agile" 200 2
+      , newEntry "In The Cloud" 300 3
+      , newEntry "Future-Proof" 100 1
+      , newEntry "Rock-Star Ninja" 400 4
+      ]
+  }
+
+-- VIEW
+
 title message times =
   message
     ++ " "
@@ -24,12 +35,10 @@ title message times =
     |> text
 
 
-pageHeader : Html
 pageHeader =
   h1 [] [ title "bingo!" 3 ]
 
 
-pageFooter : Html
 pageFooter =
   footer
     []
@@ -47,25 +56,20 @@ entryItem entry =
     ]
 
 
-entryList : Html
-entryList =
-  ul
-    []
-    [ entryItem (newEntry "Future-Proof" 100 1)
-    , entryItem (newEntry "Doing Agile" 200 2)
-    ]
+entryList entries =
+  ul [] (List.map entryItem entries)
+    
 
 
-view : Html
-view =
+view model =
   div
     [ id "container" ]
     [ pageHeader
-    , entryList
+    , entryList model.entries
     , pageFooter
     ]
 
-
-main : Html
+-- wire it all together
+    
 main =
-  view
+  view initialModel
