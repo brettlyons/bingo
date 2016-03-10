@@ -11456,6 +11456,21 @@ Elm.Bingo.make = function (_elm) {
                    ,_U.list([$Html$Attributes.id("container")])
                    ,_U.list([pageHeader,entryList(model.entries),pageFooter]));
        };
+       var update = F2(function (action,model) {
+                       var _p0 = action;
+                       if (_p0.ctor === "NoOp") {
+                          return model;
+                       } else {
+                          return _U.update(model
+                                          ,{entries: A2($List.sortBy
+                                                       ,function (_) {
+                                                          return _.points;
+                                                       }
+                                                       ,model.entries)});
+                       }
+                    });
+       var Sort = {ctor: "Sort"};
+       var NoOp = {ctor: "NoOp"};
        var newEntry = F3(function (phrase,points,id) {
                          return {phrase: phrase,points: points,wasSpoken: false,id: id};
                       });
@@ -11466,10 +11481,13 @@ Elm.Bingo.make = function (_elm) {
                                             ,A3(newEntry,"In The Cloud",300,3)
                                             ,A3(newEntry,"Future-Proof",100,1)
                                             ,A3(newEntry,"Rock-Star Ninja",400,4)])};
-       var main = view(initialModel);
+       var main = view(A2(update,Sort,initialModel));
        return _elm.Bingo.values = {_op: _op
                                   ,newEntry: newEntry
                                   ,initialModel: initialModel
+                                  ,NoOp: NoOp
+                                  ,Sort: Sort
+                                  ,update: update
                                   ,title: title
                                   ,pageHeader: pageHeader
                                   ,pageFooter: pageFooter

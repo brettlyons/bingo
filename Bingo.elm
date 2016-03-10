@@ -23,6 +23,20 @@ initialModel =
       , newEntry "Rock-Star Ninja" 400 4
       ]
   }
+-- UPDATE
+
+type Action
+  = NoOp
+  | Sort
+
+update action model =
+  case action of
+    NoOp ->
+      model
+
+    Sort ->
+      { model | entries = List.sortBy .points model.entries }
+
 
 -- VIEW
 
@@ -72,4 +86,7 @@ view model =
 -- wire it all together
     
 main =
-  view initialModel
+  -- view (update Sort initialModel)
+  initialModel
+    |> update Sort
+    |> view
