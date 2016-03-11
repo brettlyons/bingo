@@ -4,8 +4,11 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import String exposing (toUpper, repeat, trimRight)
+import StartApp.Simple as StartApp
+
 
 -- MODEL
+
 
 newEntry phrase points id =
   { phrase = phrase
@@ -23,11 +26,16 @@ initialModel =
       , newEntry "Rock-Star Ninja" 400 4
       ]
   }
+
+
+
 -- UPDATE
+
 
 type Action
   = NoOp
   | Sort
+
 
 update action model =
   case action of
@@ -38,7 +46,9 @@ update action model =
       { model | entries = List.sortBy .points model.entries }
 
 
+
 -- VIEW
+
 
 title message times =
   message
@@ -72,21 +82,30 @@ entryItem entry =
 
 entryList entries =
   ul [] (List.map entryItem entries)
-    
 
 
-view model =
+view address model =
   div
     [ id "container" ]
     [ pageHeader
     , entryList model.entries
+    , button
+        [ class "sort", onClick address Sort ]
+        [ text "Sort" ]
     , pageFooter
     ]
 
+
+
 -- wire it all together
-    
+
+
 main =
-  -- view (update Sort initialModel)
-  initialModel
-    |> update Sort
-    |> view
+  -- initialModel
+  --   |> update Sort
+  --   |> view
+  StartApp.start
+    { model = initialModel
+    , view = view
+    , update = update
+    }
