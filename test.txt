@@ -1,0 +1,109 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.015  000.015: --- NVIM STARTING ---
+000.350  000.335: locale set
+000.933  000.583: inits 1
+000.948  000.015: window checked
+001.215  000.267: parsing arguments
+001.219  000.004: expanding arguments
+001.260  000.041: inits 2
+001.474  000.214: init highlight
+004.029  002.417  002.417: sourcing /home/brett/.config/nvim/autoload/plug.vim
+006.001  000.033  000.033: sourcing /usr/share/nvim/runtime/ftoff.vim
+006.882  000.020  000.020: sourcing /home/brett/.vim/plugged/elm-vim/ftdetect/elm.vim
+020.557  012.796  012.796: sourcing /usr/share/nvim/runtime/filetype.vim
+020.720  000.039  000.039: sourcing /usr/share/nvim/runtime/ftplugin.vim
+020.807  000.023  000.023: sourcing /usr/share/nvim/runtime/indent.vim
+021.170  000.176  000.176: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+021.280  000.357  000.181: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+021.305  000.450  000.093: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+021.388  000.009  000.009: sourcing /usr/share/nvim/runtime/filetype.vim
+021.455  000.005  000.005: sourcing /usr/share/nvim/runtime/ftplugin.vim
+021.522  000.007  000.007: sourcing /usr/share/nvim/runtime/indent.vim
+021.723  000.136  000.136: sourcing /usr/share/nvim/runtime/syntax/nosyntax.vim
+021.998  000.152  000.152: sourcing /usr/share/nvim/runtime/syntax/syncolor.vim
+022.089  000.309  000.157: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+022.111  000.552  000.107: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+022.209  020.637  004.285: sourcing /home/brett/.config/nvim/init.vim
+022.213  000.102: sourcing vimrc file(s)
+022.481  000.110  000.110: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline.vim
+022.615  000.056  000.056: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/init.vim
+022.893  000.080  000.080: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/parts.vim
+023.270  000.971  000.725: sourcing /home/brett/.vim/plugged/vim-airline/plugin/airline.vim
+023.455  000.008  000.008: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/autoloclist.vim
+023.473  000.007  000.007: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/balloons.vim
+023.487  000.005  000.005: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/checker.vim
+023.500  000.005  000.005: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/cursor.vim
+023.513  000.005  000.005: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/highlighting.vim
+023.528  000.006  000.006: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/loclist.vim
+023.541  000.005  000.005: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/modemap.vim
+023.554  000.005  000.005: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/notifiers.vim
+023.568  000.005  000.005: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/registry.vim
+023.582  000.006  000.006: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/signs.vim
+024.068  000.386  000.386: sourcing /home/brett/.vim/plugged/syntastic/autoload/syntastic/util.vim
+029.335  000.046  000.046: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/autoloclist.vim
+029.391  000.039  000.039: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/balloons.vim
+029.615  000.213  000.213: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/checker.vim
+029.768  000.135  000.135: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/cursor.vim
+029.877  000.092  000.092: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/highlighting.vim
+030.221  000.327  000.327: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/loclist.vim
+030.337  000.099  000.099: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/modemap.vim
+030.435  000.082  000.082: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/notifiers.vim
+030.798  000.346  000.346: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/registry.vim
+030.955  000.114  000.114: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic/signs.vim
+031.737  008.147  006.268: sourcing /home/brett/.vim/plugged/syntastic/plugin/syntastic.vim
+035.671  003.883  003.883: sourcing /home/brett/.vim/plugged/nerdcommenter/plugin/NERD_commenter.vim
+036.024  000.285  000.285: sourcing /home/brett/.vim/plugged/auto-pairs/plugin/auto-pairs.vim
+036.331  000.262  000.262: sourcing /home/brett/.vim/plugged/vim-parinfer/plugin/parinfer.vim
+036.662  000.123  000.123: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+036.689  000.017  000.017: sourcing /usr/share/nvim/runtime/plugin/man.vim
+037.082  000.384  000.384: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+037.217  000.122  000.122: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+037.569  000.341  000.341: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+037.812  000.154  000.154: sourcing /usr/share/nvim/runtime/autoload/remote/host.vim
+037.843  000.004  000.004: sourcing /home/brett/.config/nvim/.init.vim-rplugin~
+037.847  000.259  000.101: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+037.868  000.009  000.009: sourcing /usr/share/nvim/runtime/plugin/rrhelper.vim
+037.951  000.072  000.072: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+037.987  000.020  000.020: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+038.099  000.099  000.099: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+038.180  000.066  000.066: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+038.208  000.015  000.015: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+038.315  000.093  000.093: sourcing /usr/share/nvim/runtime/plugin/vimballPlugin.vim
+038.446  000.115  000.115: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+038.492  000.943: loading plugins
+038.496  000.005: inits 3
+040.766  002.270: reading ShaDa
+041.584  000.817: clearing screen
+043.794  000.134  000.134: sourcing /home/brett/.vim/plugged/elm-vim/syntax/elm.vim
+044.109  000.104  000.104: sourcing /home/brett/.vim/plugged/elm-vim/ftplugin/elm.vim
+044.621  000.070  000.070: sourcing /home/brett/.vim/plugged/elm-vim/indent/elm.vim
+044.798  000.006  000.006: sourcing /home/brett/.vim/plugged/elm-vim/ftplugin/elm.vim
+045.232  000.027  000.027: sourcing /home/brett/.vim/plugged/elm-vim/indent/elm.vim
+045.526  000.148  000.148: sourcing /home/brett/.vim/plugged/elm-vim/syntax/elm.vim
+045.840  000.153  000.153: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions.vim
+045.920  000.030  000.030: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/quickfix.vim
+046.007  000.025  000.025: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/netrw.vim
+046.146  000.019  000.019: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/syntastic.vim
+046.313  000.102  000.102: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/whitespace.vim
+046.443  000.025  000.025: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/po.vim
+046.534  000.031  000.031: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/wordcount.vim
+047.491  000.050  000.050: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/section.vim
+047.696  000.109  000.109: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/highlighter.vim
+049.013  000.038  000.038: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/themes.vim
+049.202  000.276  000.237: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/themes/dark.vim
+056.213  000.056  000.056: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/util.vim
+056.404  000.083  000.083: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/builder.vim
+056.662  000.062  000.062: sourcing /home/brett/.vim/plugged/vim-airline/autoload/airline/extensions/default.vim
+070.214  027.121: opening buffers
+070.450  000.159  000.159: sourcing /home/brett/.vim/plugged/syntastic/autoload/syntastic/log.vim
+071.649  001.277: BufEnter autocommands
+071.653  000.004: editing files in windows
+076.198  004.545: VimEnter autocommands
+076.204  000.006: before starting main loop
+087.012  010.808: first screen update
+087.019  000.007: --- NVIM STARTED ---
