@@ -1,12 +1,15 @@
 module Bingo (..) where
 
 import Html exposing (..)
+import Debug exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import String exposing (toUpper, repeat, trimRight)
 import StartApp.Simple as StartApp
 
+
 -- MODEL
+
 
 newEntry phrase points id =
   { phrase = phrase
@@ -25,7 +28,10 @@ initialModel =
       ]
   }
 
+
+
 -- UPDATE
+
 
 type Action
   = NoOp
@@ -43,12 +49,18 @@ update action model =
 
     Delete id ->
       let
-          remainingEntries =
-            List.filter (\e -> e.id /= id) model.entries
+        remainingEntries =
+          List.filter (\e -> e.id /= id) model.entries
+
+        _ =
+          Debug.log "remaining entries" remainingEntries
       in
-          { model | entries <- remainingEntries }
+        { model | entries = remainingEntries }
+
+
 
 -- VIEW
+
 
 title message times =
   message
@@ -72,32 +84,38 @@ pageFooter =
     ]
 
 
-entryItem entry =
+entryItem address entry =
   li
     []
     [ span [ class "phrase" ] [ text entry.phrase ]
     , span [ class "points" ] [ text (toString entry.points) ]
+    , button
+      [ class "delete", onClick address (Delete entry.id) ]
+      [  ]
     ]
 
 
-entryList entries =
+entryList address entries =
   ul
     []
-    (List.map entryItem entries)
+    (List.map (entryItem address) entries)
 
 
 view address model =
   div
     [ id "container" ]
     [ pageHeader
-    , entryList model.entries
+    , entryList address model.entries
     , button
         [ class "sort", onClick address Sort ]
         [ text "Sort" ]
     , pageFooter
     ]
 
+
+
 -- wire it all together
+
 
 main =
   -- initialModel
