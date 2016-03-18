@@ -96,9 +96,10 @@ entryItem address entry =
 
 
 entryList address entries =
-  ul
-    []
-    (List.map (entryItem address) entries)
+  let
+      entryItems = List.map (entryItem  address) entries
+  in
+    ul [] entryItems
 
 
 view address model =
