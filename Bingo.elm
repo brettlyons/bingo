@@ -37,6 +37,7 @@ type Action
   = NoOp
   | Sort
   | Delete Int
+  | Mark Int
 
 
 update action model =
@@ -56,6 +57,16 @@ update action model =
           Debug.log "remaining entries" remainingEntries
       in
         { model | entries = remainingEntries }
+
+    Mark id ->
+      let
+        updateEntry e =
+          if e.id == id then
+            { e | wasSpoken = (not e.wasSpoken) }
+          else
+            e
+      in
+        { model | entries = List.map updateEntry model.entries }
 
 
 
@@ -86,18 +97,21 @@ pageFooter =
 
 entryItem address entry =
   li
-    []
+    [ classList [ ( "highlight", entry.wasSpoken ) ]
+    , onClick address (Mark entry.id)
+    ]
     [ span [ class "phrase" ] [ text entry.phrase ]
     , span [ class "points" ] [ text (toString entry.points) ]
     , button
-      [ class "delete", onClick address (Delete entry.id) ]
-      [  ]
+        [ class "delete", onClick address (Delete entry.id) ]
+        []
     ]
 
 
 entryList address entries =
   let
-      entryItems = List.map (entryItem  address) entries
+    entryItems =
+      List.map (entryItem address) entries
   in
     ul [] entryItems
 

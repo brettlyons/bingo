@@ -11496,7 +11496,7 @@ Elm.Bingo.make = function (_elm) {
                                                            return _.points;
                                                         }
                                                         ,model.entries)});
-                         default:
+                         case "Delete":
                            var remainingEntries = A2($List.filter
                                                     ,function (e) {
                                                        return !_U.eq(e.id,_p0._0);
@@ -11504,12 +11504,23 @@ Elm.Bingo.make = function (_elm) {
                                                     ,model.entries);
                            var _p1 = A2($Debug.log,"remaining entries",remainingEntries);
                            return _U.update(model,{entries: remainingEntries});
+                         default:
+                           var updateEntry = function (e) {
+                              return _U.eq(e.id,_p0._0) ? _U.update(e
+                                                                   ,{wasSpoken: $Basics.not(e.wasSpoken)}) : e;
+                           };
+                           return _U.update(model
+                                           ,{entries: A2($List.map,updateEntry,model.entries)});
                        }
                     });
+       var Mark = function (a) { return {ctor: "Mark",_0: a};};
        var Delete = function (a) { return {ctor: "Delete",_0: a};};
        var entryItem = F2(function (address,entry) {
                           return A2($Html.li
-                                   ,_U.list([])
+                                   ,_U.list([$Html$Attributes.classList(_U.list([{ctor: "_Tuple2"
+                                                                                 ,_0: "highlight"
+                                                                                 ,_1: entry.wasSpoken}]))
+                                            ,A2($Html$Events.onClick,address,Mark(entry.id))])
                                    ,_U.list([A2($Html.span
                                                ,_U.list([$Html$Attributes.$class("phrase")])
                                                ,_U.list([$Html.text(entry.phrase)]))
@@ -11522,9 +11533,8 @@ Elm.Bingo.make = function (_elm) {
                                                ,_U.list([]))]));
                        });
        var entryList = F2(function (address,entries) {
-                          return A2($Html.ul
-                                   ,_U.list([])
-                                   ,A2($List.map,entryItem(address),entries));
+                          var entryItems = A2($List.map,entryItem(address),entries);
+                          return A2($Html.ul,_U.list([]),entryItems);
                        });
        var Sort = {ctor: "Sort"};
        var view = F2(function (address,model) {
@@ -11558,6 +11568,7 @@ Elm.Bingo.make = function (_elm) {
                                   ,NoOp: NoOp
                                   ,Sort: Sort
                                   ,Delete: Delete
+                                  ,Mark: Mark
                                   ,update: update
                                   ,title: title
                                   ,pageHeader: pageHeader
