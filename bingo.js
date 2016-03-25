@@ -11481,16 +11481,12 @@ Elm.Bingo.make = function (_elm) {
                                ,_U.list([$Html.text($Basics.toString(total))]))]));
        };
        var totalPoints = function (entries) {
-          var spokenEntries = A2($List.filter
-                                ,function (_) {
-                                   return _.wasSpoken;
-                                }
-                                ,entries);
-          return $List.sum(A2($List.map
-                             ,function (_) {
-                                return _.points;
-                             }
-                             ,spokenEntries));
+          return A3($List.foldl
+                   ,F2(function (e,sum) {
+                      return sum + e.points;
+                   })
+                   ,0
+                   ,A2($List.filter,function (_) { return _.wasSpoken;},entries));
        };
        var pageFooter = A2($Html.footer
                           ,_U.list([])
@@ -11587,7 +11583,13 @@ Elm.Bingo.make = function (_elm) {
        var main = $StartApp$Simple.start({model: initialModel
                                          ,view: view
                                          ,update: update});
+       var Model = function (a) { return {entries: a};};
+       var Entry = F4(function (a,b,c,d) {
+                      return {phrase: a,points: b,wasSpoken: c,id: d};
+                   });
        return _elm.Bingo.values = {_op: _op
+                                  ,Entry: Entry
+                                  ,Model: Model
                                   ,newEntry: newEntry
                                   ,initialModel: initialModel
                                   ,NoOp: NoOp
