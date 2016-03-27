@@ -7,7 +7,7 @@ import Html.Events exposing (..)
 import Signal exposing (Address)
 import String exposing (toUpper, repeat, trimRight)
 import StartApp.Simple as StartApp
-
+import BingoUtils as Utils
 
 -- MODEL
 
@@ -22,6 +22,9 @@ type alias Entry =
 
 type alias Model =
   { entries : List Entry
+  , phraseInput : String
+  , pointsInput : String
+  , nextID : Int
   }
 
 
@@ -42,6 +45,9 @@ initialModel =
       , newEntry "Future-Proof" 100 1
       , newEntry "Rock-Star Ninja" 400 4
       ]
+  , phraseInput = ""
+  , pointsInput = ""
+  , nextID = 5
   }
 
 
@@ -54,6 +60,9 @@ type Action
   | Sort
   | Delete Int
   | Mark Int
+  | UpdatePhraseInput String
+  | UpdatePointsInput String
+
 
 update : Action -> Model -> Model
 update action model =
@@ -84,7 +93,11 @@ update action model =
       in
         { model | entries = List.map updateEntry model.entries }
 
+    UpdatePhraseInput contents ->
+      { model | phraseInput = contents }
 
+    UpdatePointsInput contents ->
+      { model | pointsInput = contents }
 
 -- VIEW
 
@@ -143,6 +156,7 @@ totalItem total =
     , span [ class "points" ] [ text (toString total) ]
     ]
 
+
 entryList : Address Action -> List Entry -> Html
 entryList address entries =
   let
@@ -154,11 +168,40 @@ entryList address entries =
   in
     ul [] items
 
+entryForm : Address Action -> Model -> Html
+entryForm address model =
+  div [ ]
+    [ input
+      [ type' "text"
+      , placeholder "Phrase"
+      , value model.phraseInput
+      , name "phrase"
+      , autofocus True
+      , Utils.onInput address UpdatePhraseInput
+      ]
+      [ ],
+      input
+          [ type' "number"
+          , placeholder "Points"
+          , value model.pointsInput
+          , name "points"
+          , Utils.onInput address UpdatePointsInput
+          ]
+          [ ],
+      button [ class "add" ] [ text "Add" ]
+      ,
+      h2
+        []
+        [ text (model.phraseInput ++ " " ++ model.pointsInput) ]
+    ]
+
+
 view : Address Action -> Model -> Html
 view address model =
   div
     [ id "container" ]
     [ pageHeader
+    , entryForm address model
     , entryList address model.entries
     , button
         [ class "sort", onClick address Sort ]
@@ -170,7 +213,8 @@ view address model =
 
 -- wire it all together
 
-main: Signal Html
+
+main : Signal Html
 main =
   -- initialModel
   --   |> update Sort
